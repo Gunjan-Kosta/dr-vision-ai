@@ -20,7 +20,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <PredictionProvider>
-          <Router>
+          <Router basename={import.meta.env.BASE_URL}>
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={

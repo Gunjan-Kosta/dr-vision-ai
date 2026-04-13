@@ -137,7 +137,7 @@ const Prescription = () => {
             <div className="space-y-6">
               <div>
                 <label className="label">Severity Level (Auto-filled)</label>
-                <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-700/50">
                   <span className="w-3 h-3 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.5)]"></span>
                   <span className="font-bold text-slate-900 dark:text-slate-100">{formData.severity}</span>
                 </div>
@@ -150,7 +150,7 @@ const Prescription = () => {
                 </label>
                 <textarea 
                   name="precautions"
-                  className="input-field min-h-[120px] py-3 resize-none dark:bg-slate-900/50"
+                  className="input-field min-h-[120px] py-3 resize-none dark:bg-slate-900/80"
                   rows={4}
                   value={formData.precautions}
                   onChange={handleChange}
@@ -164,7 +164,7 @@ const Prescription = () => {
                 </label>
                 <textarea 
                   name="medications"
-                  className="input-field min-h-[150px] py-3 resize-none bg-blue-50/20 dark:bg-blue-900/10"
+                  className="input-field min-h-[150px] py-3 resize-none bg-blue-50/30 dark:bg-blue-900/20"
                   rows={5}
                   value={formData.medications}
                   onChange={handleChange}

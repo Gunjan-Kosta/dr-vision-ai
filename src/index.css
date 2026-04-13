@@ -8,6 +8,17 @@
   }
   .dark body {
     @apply bg-slate-950 text-slate-100;
+    color-scheme: dark;
+  }
+  
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover, 
+  .dark input:-webkit-autofill:focus, 
+  .dark select:-webkit-autofill,
+  .dark select:-webkit-autofill:hover,
+  .dark select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+    -webkit-text-fill-color: #f1f5f9 !important;
   }
 }
 

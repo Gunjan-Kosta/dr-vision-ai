@@ -3,6 +3,7 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { ArrowLeft, Download, Printer, Share2, Stethoscope, Phone, Mail, Globe } from 'lucide-react';
 import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
 import { Button } from '../components/ui/Button';
 import { usePrediction } from '../context/PredictionContext';
 
@@ -60,10 +61,10 @@ const Preview = () => {
         {/* Prescription Sheet */}
         <div 
           ref={printRef}
-          className="bg-white shadow-2xl rounded-sm min-h-[1000px] p-12 print:shadow-none print:m-0 print:p-8 border-t-[12px] border-medical-600"
+          className="bg-white shadow-2xl rounded-sm min-h-[1000px] p-12 print:shadow-none print:m-0 print:p-8 print:min-h-0 border-t-[12px] border-medical-600"
         >
           {/* Hospital Header */}
-          <div className="flex justify-between items-start mb-10 pb-10 border-b-2 border-slate-100">
+          <div className="flex justify-between items-start mb-10 pb-10 print:mb-6 print:pb-4 border-b-2 border-slate-100">
             <div className="flex items-center gap-4">
               <div className="bg-medical-600 text-white p-3 rounded-2xl">
                 <Stethoscope size={40} />
@@ -90,7 +91,7 @@ const Preview = () => {
           </div>
 
           {/* Doctor Info */}
-          <div className="mb-10 flex justify-between">
+          <div className="mb-10 print:mb-6 flex justify-between">
             <div>
               <p className="text-xl font-bold text-slate-900">{patientData.doctorName}</p>
               <p className="text-medical-600 font-semibold">{patientData.doctorRole}</p>
@@ -103,7 +104,7 @@ const Preview = () => {
           </div>
 
           {/* Patient Details Row */}
-          <div className="bg-slate-50 p-6 rounded-xl grid grid-cols-4 gap-6 mb-12">
+          <div className="bg-slate-50 p-6 print:p-4 rounded-xl grid grid-cols-4 gap-6 mb-12 print:mb-6">
             <div>
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Patient Name</p>
               <p className="font-bold text-slate-900">{patientData.patientName}</p>
@@ -119,11 +120,11 @@ const Preview = () => {
           </div>
 
           {/* Rx Icon */}
-          <div className="text-5xl font-serif text-slate-300 mb-6 italic opacity-50 select-none">Rx</div>
+          <div className="text-5xl font-serif text-slate-300 mb-6 print:mb-4 italic opacity-50 select-none">Rx</div>
 
           {/* Prescription Content */}
-          <div className="flex flex-col h-full min-h-[400px]">
-            <div className="flex-grow space-y-12">
+          <div className="flex flex-col h-full min-h-[400px] print:min-h-0">
+            <div className="flex-grow space-y-12 print:space-y-6">
               <section>
                 <h3 className="text-sm font-black text-slate-900 mb-4 border-l-4 border-medical-600 pl-3">MEDICATIONS</h3>
                 <div className="whitespace-pre-line text-slate-700 leading-loose ml-7 font-medium">
@@ -140,7 +141,7 @@ const Preview = () => {
             </div>
 
             {/* Footer with Signature */}
-            <div className="mt-24 border-t border-slate-100 pt-10 flex justify-between items-end">
+            <div className="mt-24 print:mt-12 border-t border-slate-100 pt-10 print:pt-6 flex justify-between items-end">
               <div className="text-[10px] text-slate-400 max-w-xs leading-relaxed">
                 This prescription is generated based on AI-assisted analysis of retinal imaging. Final confirmation has been provided by the signing physician. 
                 <br /><br />
