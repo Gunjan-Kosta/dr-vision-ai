@@ -15,7 +15,7 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -29,8 +29,12 @@ const Login = () => {
       return;
     }
 
-    login(email, password);
-    navigate('/');
+    try {
+      await login(email, password);
+      navigate('/');
+    } catch (err) {
+      setError('Failed to sign in: ' + (err.code?.replace('auth/', '').replace(/-/g, ' ') || 'Invalid credentials'));
+    }
   };
 
   return (
@@ -112,8 +116,8 @@ const Login = () => {
             <Button
               variant="ghost"
               type="button"
-              onClick={() => {
-                login('guest@example.com', 'bypass');
+              onClick={async () => {
+                await login('guest@example.com', 'bypass');
                 navigate('/');
               }}
               className="w-full py-2 text-sm font-medium text-slate-400 hover:text-medical-600 mt-2"
